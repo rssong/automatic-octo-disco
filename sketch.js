@@ -10,9 +10,11 @@ function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
 }
 
-function draw() {
+function draw(){
   background("blue");
-  
+  if (getAudioContext().state !== 'running') {
+	  getAudioContext().resume();
+  }
   // 스마일
   smile(width/2, height/2, width*0.3);
   
